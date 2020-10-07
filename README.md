@@ -375,4 +375,4 @@ namespace SfChart_GettingStarted
 
 ## <a name="output"></a>Output ##
 
-![WinUI Chart Getting_Started image](Chart_WinUI_GettingStarted.PNG)
+![WinUI Chart Getting_Started image](Chart_WinUI_GettingStarted.png)
