@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.ProjectReunion.Foundation" Version="0.5.0" />
     <PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.5.0" />
     <PackageReference Include="Syncfusion.Chart.WinUI" Version="19.1.0.54-beta" />
+	<FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.19041.13" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 </Project>
