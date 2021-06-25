@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="PolarChartGettingStartedUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:PolarChartGettingStartedUWP"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <chart:SfPolarChart Header="Polar Chart" Palette="BlueChrome">
+
+            <chart:SfPolarChart.DataContext>
+                <model:ChartViewModel/>
+            </chart:SfPolarChart.DataContext>
+
+            <chart:SfPolarChart.PrimaryAxis>
+                <chart:CategoryAxis/>
+            </chart:SfPolarChart.PrimaryAxis>
+
+            <chart:SfPolarChart.SecondaryAxis>
+                <chart:NumericalAxis/>
+            </chart:SfPolarChart.SecondaryAxis>
+
+            <chart:SfPolarChart.Legend>
+                <chart:ChartLegend/>
+            </chart:SfPolarChart.Legend>
+
+            <chart:SfPolarChart.Series>
+                <chart:PolarAreaSeries ItemsSource="{Binding Data}" 
+                         XBindingPath="Category"
+                         YBindingPath="Value"
+                         Label="Sales"
+                         LegendIcon="Circle"
+                         ShowDataLabels="True">
+                </chart:PolarAreaSeries>
+            </chart:SfPolarChart.Series>
+
+        </chart:SfPolarChart>
+    </Grid>
+</Page>

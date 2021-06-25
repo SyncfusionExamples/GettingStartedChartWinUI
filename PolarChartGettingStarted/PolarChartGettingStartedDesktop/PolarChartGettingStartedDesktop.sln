@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.218
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "PolarChartGettingStartedDesktop (Package)", "PolarChartGettingStartedDesktop (Package)\PolarChartGettingStartedDesktop (Package).wapproj", "{74749269-2686-4A66-AEF6-2FEA0E1E13A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarChartGettingStartedDesktop", "PolarChartGettingStartedDesktop\PolarChartGettingStartedDesktop.csproj", "{297842EA-C13F-4DF9-A815-928A7F27AD71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|arm64 = Debug|arm64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|arm64 = Release|arm64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|arm64.ActiveCfg = Debug|arm64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|arm64.Build.0 = Debug|arm64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|arm64.Deploy.0 = Debug|arm64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|x64.ActiveCfg = Debug|x64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|x64.Build.0 = Debug|x64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|x64.Deploy.0 = Debug|x64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|x86.ActiveCfg = Debug|x86
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|x86.Build.0 = Debug|x86
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Debug|x86.Deploy.0 = Debug|x86
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|arm64.ActiveCfg = Release|arm64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|arm64.Build.0 = Release|arm64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|arm64.Deploy.0 = Release|arm64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|x64.ActiveCfg = Release|x64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|x64.Build.0 = Release|x64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|x64.Deploy.0 = Release|x64
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|x86.ActiveCfg = Release|x86
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|x86.Build.0 = Release|x86
+		{74749269-2686-4A66-AEF6-2FEA0E1E13A7}.Release|x86.Deploy.0 = Release|x86
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Debug|arm64.ActiveCfg = Debug|arm64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Debug|arm64.Build.0 = Debug|arm64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Debug|x64.ActiveCfg = Debug|x64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Debug|x64.Build.0 = Debug|x64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Debug|x86.ActiveCfg = Debug|x86
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Debug|x86.Build.0 = Debug|x86
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Release|arm64.ActiveCfg = Release|arm64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Release|arm64.Build.0 = Release|arm64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Release|x64.ActiveCfg = Release|x64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Release|x64.Build.0 = Release|x64
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Release|x86.ActiveCfg = Release|x86
+		{297842EA-C13F-4DF9-A815-928A7F27AD71}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50D412D0-316E-460D-A856-1B1C815A13E6}
+	EndGlobalSection
+EndGlobal
