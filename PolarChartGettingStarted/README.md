@@ -1,0 +1,357 @@
+# GettingStartedPolarChartWinUI
+This is demo application of WinUI SfPolarChart control. The minimal set of required properties have been configured in this project to get started with SfPolarChart in WinUI.
+
+## <a name="description"></a>Description ##
+
+## Initialize chart
+Add reference to [`Syncfusion.Chart.WinUI`](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
+
+###### Xaml
+```xaml
+
+<Page
+    x:Class="PolarChartGettingStartedUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:PolarChartGettingStartedUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">  
+    <Grid>
+        <chart:SfPolarChart />            
+    </Grid>
+</Page>
+ ```
+###### C#
+```C#
+
+using Syncfusion.UI.Xaml.Charts;
+
+namespace PolarChartGettingStartedUWP
+{
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+            
+            SfPolarChart chart = new SfPolarChart();      
+            ...
+            this.Content = chart;
+        }
+    }   
+}
+```
+
+## Initialize view model
+
+Now, let us define a simple data model that represents a data point in chart.
+
+###### C#
+```C#
+
+public class Model
+{
+    public string Category { get; set; }
+    public double Value { get; set; }
+}
+```
+
+Next, create a view model class and initialize a list of `Model` objects as follows.
+
+###### C#
+```C#
+public class ChartViewModel
+{
+    public ObservableCollection<Model> Data { get; set; }
+
+    public ChartViewModel()
+    {
+        Data = new ObservableCollection<Model>()
+        {
+            new Model(){ Category = "North", Value = 80 },
+            new Model(){ Category = "NorthWest", Value = 87.5 },
+            new Model(){ Category = "West", Value = 79 },
+            new Model(){ Category = "SouthWest", Value = 83 },
+            new Model(){ Category = "South", Value = 77.5 },
+            new Model(){ Category = "SouthEast", Value = 90 },
+            new Model(){ Category = "East", Value = 77.5 },
+            new Model(){ Category = "NorthEast", Value = 85 },
+        };
+    }
+}
+ ```
+
+Create a `ChartViewModel` instance and set it as the chart's `DataContext`. This enables property binding from the `ChartViewModel` class.
+ 
+N> If you prefer to set `DataContext` in XAML, add the namespace of the `ViewModel` class to your XAML Page.
+
+###### Xaml
+```xaml
+<Page
+    x:Class="PolarChartGettingStartedUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:PolarChartGettingStartedUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <chart:SfPolarChart>
+        <chart:SfPolarChart.DataContext>
+            <model:ChartViewModel/>
+        </chart:SfPolarChart.DataContext>
+    </chart:SfPolarChart>
+</Page>
+```
+###### C#
+```C#
+ChartViewModel viewModel = new ChartViewModel();
+chart.DataContext = viewModel;
+```
+## Initialize chart axis
+
+[ChartAxis]() is used to locate the data points inside the chart area. The [PrimaryAxis]() and [SecondaryAxis]() properties of the chart is used to initialize the axis for the chart.
+
+###### Xaml
+```xaml
+<chart:SfPolarChart> 
+      <chart:SfPolarChart.PrimaryAxis> 
+           <chart:CategoryAxis /> 
+      </chart:SfPolarChart.PrimaryAxis> 
+      <chart:SfPolarChart.SecondaryAxis> 
+           <chart:NumericalAxis/> 
+      </chart:SfPolarChart.SecondaryAxis>
+</chart:SfPolarChart>
+```
+###### C#
+```C#
+
+SfPolarChart chart = new SfPolarChart();
+CategoryAxis primaryAxis = new CategoryAxis();
+chart.PrimaryAxis = primaryAxis;    
+NumericalAxis secondaryAxis = new NumericalAxis();
+chart.SecondaryAxis = secondaryAxis;
+```
+
+## Populate chart with data
+
+Adding [PolarAreaSeries]() to the polar chart [Series]() collection and binding `Data` to the series [ItemsSource]() property from its `DataContext` for creating polar chart.
+
+N> To plot the series, the [XBindingPath]((https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_XBindingPath) and [YBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.XyDataSeries.html#Syncfusion_UI_Xaml_Charts_XyDataSeries_YBindingPath) properties must be configured so that the chart may get values from the respective properties in the data model.
+
+###### Xaml
+```xaml
+<chart:SfPolarChart>
+    <chart:SfPolarChart.PrimaryAxis> 
+        <chart:CategoryAxis /> 
+    </chart:SfPolarChart.PrimaryAxis> 
+    <chart:SfPolarChart.SecondaryAxis> 
+        <chart:NumericalAxis/> 
+    </chart:SfPolarChart.SecondaryAxis>
+    <chart:SfPolarChart.Series>
+        <chart:PolarAreaSeries ItemsSource="{Binding Data}" 
+                         XBindingPath="Category" 
+                         YBindingPath="Value"/>
+    </chart:SfPolarChart.Series>
+    ...
+</chart:SfPolarChart> 
+```
+
+###### C#
+```C#
+SSfPolarChart chart = new SfPolarChart();
+
+ChartViewModel viewModel = new ChartViewModel();
+chart.DataContext = viewModel;
+
+CategoryAxis primaryAxis = new CategoryAxis();
+chart.PrimaryAxis = primaryAxis;    
+NumericalAxis secondaryAxis = new NumericalAxis();
+chart.SecondaryAxis = secondaryAxis;
+
+PolarAreaSeries series = new PolarAreaSeries();
+series.XBindingPath = "Category";
+series.YBindingPath = "Value";
+
+series.SetBinding(
+    ChartSeriesBase.ItemsSourceProperty, 
+    new Binding() 
+    { Path = new PropertyPath("Data") });
+
+chart.Series.Add(series);
+. . .
+```
+## Add title
+
+The title of the chart provide quick information to the user about the data being plotted in the chart. The [Header]() property is used to set title for polar chart as follows.
+
+###### Xaml
+```xaml
+<chart:SfPolarChart Header="Polar Chart"> 
+...
+</chart:SfPolarChart>
+```
+###### C#
+```C#
+SfPolarChart chart = new SfPolarChart();
+chart.Header = "Polar Chart";
+...
+```
+
+## Enable data labels
+
+The [ShowDataLabels]() property of series can be used to enable the data labels to improve the readability of the chart. The label visibility is set to `False` by default.
+
+###### Xaml
+```xaml
+<chart:SfPolarChart>
+    ...
+    <chart:PolarAreaSeries ShowDataLabels="True"
+                        ItemsSource="{Binding Data}" 
+                        XBindingPath="Category" 
+                        YBindingPath="Value">
+    </chart:PolarAreaSeries>
+</chart:SfPolarChart>
+```
+###### C#
+```C#
+SfPolarChart chart = new SfPolarChart();
+PolarAreaSeries series = new PolarAreaSeries();
+series.ShowDataLabels = true;
+...
+```
+
+## Enable legend
+
+The legend provides information about the data point displayed in the chart. The [Legend](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartBase.html#Syncfusion_UI_Xaml_Charts_ChartBase_Legend) property of the chart was used to enable it.
+
+###### Xaml
+```xaml
+<chart:SfPolarChart>
+    ...
+    <chart:SfPolarChart.Legend>
+        <chart:ChartLegend/>
+    </chart:SfPolarChart.Legend>
+    ...
+</chart:SfPolarChart>
+```
+###### C#
+```C#
+SfPolarChart chart = new SfPolarChart();
+chart.Legend = new ChartLegend ();
+```
+
+N> Additionally, set label for each series using the [Label](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_Label) property of chart series, which will be displayed in corresponding legend.
+
+###### Xaml
+```xaml
+<chart:SfPolarChart>
+    . . .
+    <chart:PolarAreaSeries  ItemsSource="{Binding Data}" 
+                        XBindingPath="Product" 
+                        YBindingPath="SalesRate"
+                        Label="Sales"/>
+    ...
+</chart:SfPolarChart>
+```
+###### C#
+```C#
+SfPolarChart chart = new SfPolarChart();
+...
+PolarAreaSeries series = new PolarAreaSeries();
+series.XBindingPath = "Product";
+series.YBindingPath = "SalesRate";
+series.Label = "Sales";
+```
+
+The following code example gives you the complete code of above configurations.
+
+###### Xaml
+```xaml
+<Page
+    x:Class="PolarChartGettingStartedUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:PolarChartGettingStartedUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <chart:SfPolarChart Header="Polar Chart">
+        <chart:SfPolarChart.DataContext>
+            <model:ChartViewModel/>
+        </chart:SfPolarChart.DataContext>
+        <chart:SfPolarChart.PrimaryAxis> 
+           <chart:CategoryAxis /> 
+        </chart:SfPolarChart.PrimaryAxis> 
+        <chart:SfPolarChart.SecondaryAxis> 
+           <chart:NumericalAxis/> 
+        </chart:SfPolarChart.SecondaryAxis>
+        <chart:SfPolarChart.Legend>
+            <chart:ChartLegend/>
+        </chart:SfPolarChart.Legend>
+        <chart:SfPolarChart.Series>
+            <chart:PolarAreaSeries ItemsSource="{Binding Data}" 
+                         XBindingPath="Category"
+                         YBindingPath="Value"
+                         Label="Sales"
+                         LegendIcon="Circle"
+                         ShowDataLabels ="True">
+            </chart:PolarAreaSeries>
+        </chart:SfPolarChart.Series>
+    </chart:SfPolarChart>
+</Page>
+``` 
+###### C#
+```C#
+using Syncfusion.UI.Xaml.Charts;
+
+namespace PolarChartGettingStartedUWP
+{
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+            
+            SfPolarChart chart = new SfPolarChart();
+
+            chart.Header = "Polar Chart";
+            chart.Legend = new ChartLegend();
+            ChartViewModel viewModel = new ChartViewModel();
+            chart.DataContext = viewModel;
+        
+            CategoryAxis primaryAxis = new CategoryAxis();
+            chart.PrimaryAxis = primaryAxis;    
+            NumericalAxis secondaryAxis = new NumericalAxis();
+            chart.SecondaryAxis = secondaryAxis;
+
+            PolarAreaSeries series = new PolarAreaSeries();
+            series.XBindingPath = "Category";
+            series.YBindingPath = "Value";
+            series.Label = "Sales";
+            series.ShowDataLabels = true;
+            series.LegendIcon = ChartLegendIcon.Circle;
+
+             series.SetBinding(
+                ChartSeriesBase.ItemsSourceProperty, 
+                new Binding() 
+                { Path = new PropertyPath("Data") });
+
+            chart.Series.Add(series);
+            this.Content = chart;    
+        }
+    }   
+}
+```
+
+## <a name="output"></a>Output ##
+
+![WinUI Polar Chart Getting_Started image](PolarChart_WinUI_GettingStarted.png)
