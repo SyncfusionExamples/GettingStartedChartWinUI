@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.223
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "CircularChartDesktop (Package)", "CircularChartDesktop (Package)\CircularChartDesktop (Package).wapproj", "{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularChartDesktop", "CircularChartDesktop\CircularChartDesktop.csproj", "{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|arm64 = Debug|arm64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|arm64 = Release|arm64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|arm64.ActiveCfg = Debug|arm64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|arm64.Build.0 = Debug|arm64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|arm64.Deploy.0 = Debug|arm64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|x64.ActiveCfg = Debug|x64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|x64.Build.0 = Debug|x64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|x64.Deploy.0 = Debug|x64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|x86.ActiveCfg = Debug|x86
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|x86.Build.0 = Debug|x86
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Debug|x86.Deploy.0 = Debug|x86
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|arm64.ActiveCfg = Release|arm64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|arm64.Build.0 = Release|arm64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|arm64.Deploy.0 = Release|arm64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|x64.ActiveCfg = Release|x64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|x64.Build.0 = Release|x64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|x64.Deploy.0 = Release|x64
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|x86.ActiveCfg = Release|x86
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|x86.Build.0 = Release|x86
+		{6655D73B-3A5C-4AEA-8FC3-6AE9C502CCAC}.Release|x86.Deploy.0 = Release|x86
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Debug|arm64.ActiveCfg = Debug|arm64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Debug|arm64.Build.0 = Debug|arm64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Debug|x64.ActiveCfg = Debug|x64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Debug|x64.Build.0 = Debug|x64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Debug|x86.ActiveCfg = Debug|x86
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Debug|x86.Build.0 = Debug|x86
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Release|arm64.ActiveCfg = Release|arm64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Release|arm64.Build.0 = Release|arm64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Release|x64.ActiveCfg = Release|x64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Release|x64.Build.0 = Release|x64
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Release|x86.ActiveCfg = Release|x86
+		{21AA4588-F109-4C2B-9B6C-9AFD53C6B82F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E086FE6-B3E3-47DD-919F-AAA9E4E01CBF}
+	EndGlobalSection
+EndGlobal

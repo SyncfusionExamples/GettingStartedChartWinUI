@@ -3,74 +3,72 @@ This is demo application of WinUI SfCartesianChart control. The minimal set of r
 
 ## <a name="description"></a>Description ##
 
-## Initialize chart
-Add reference to [`Syncfusion.Chart.WinUI`](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
+## Initialize Chart
+Add reference to [Syncfusion.Chart.WinUI](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
 
 ###### Xaml
 ```xaml
 
-<Page
-    x:Class="CartesianChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:CartesianChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">  
-    <Grid>
-        <chart:SfCartesianChart />            
-    </Grid>
-</Page>
+<Window
+    .....
+    xmlns:model="using:CartesianChartDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">  
+    
+    <chart:SfCartesianChart />            
+    
+</Window>
  ```
 ###### C#
 ```C#
 
 using Syncfusion.UI.Xaml.Charts;
 
-namespace CartesianChartGettingStartedUWP
+namespace CartesianChartDesktop
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Window
     {
         public MainPage()
         {
             InitializeComponent();
             
             SfCartesianChart chart = new SfCartesianChart();      
-            Root_Chart.Children.Add(chart);
+            this.Content = chart;
         }
     }   
 }
 ```
 
-## Initialize chart axis
-`Chart`supports default axes, so that these axes ([`PrimaryAxis`]() and [`SecondaryAxis`]()) will get generated automatically based upon the data bind to the chart.
+## Initialize Chart Axis
 
-Axes will be explicitly specified for it's customization purpose. The initialization of an empty chart with two axes as shown below,
+[ChartAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartAxis.html) is used to locate the data points inside the chart area. The [PrimaryAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfCartesianChart.html#Syncfusion_UI_Xaml_Charts_SfCartesianChart_PrimaryAxis) and [SecondaryAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfCartesianChart.html#Syncfusion_UI_Xaml_Charts_SfCartesianChart_SecondaryAxis) properties of the chart is used to initialize the axis for the chart.
 
 ###### Xaml
 ```xaml
 <chart:SfCartesianChart> 
+
       <chart:SfCartesianChart.PrimaryAxis> 
-           <chart:CategoryAxis /> 
+           <chart:CategoryAxis/> 
       </chart:SfCartesianChart.PrimaryAxis> 
+
       <chart:SfCartesianChart.SecondaryAxis> 
            <chart:NumericalAxis/> 
       </chart:SfCartesianChart.SecondaryAxis>
+
 </chart:SfCartesianChart>
 ```
 ###### C#
 ```C#
 
 SfCartesianChart chart = new SfCartesianChart();
+
 CategoryAxis primaryAxis = new CategoryAxis();
 chart.PrimaryAxis = primaryAxis;    
+
 NumericalAxis secondaryAxis = new NumericalAxis();
 chart.SecondaryAxis = secondaryAxis;
 ```
 
-## Initialize view model
+## Initialize View Model
 
 Now, let us define a simple data model that represents a data point in chart.
 
@@ -97,10 +95,11 @@ public class ViewModel
       {
             Data = new ObservableCollection<Person>()
             {
-                new Person { Name = "David", Height = 180 },
-                new Person { Name = "Michael", Height = 170 },
-                new Person { Name = "Steve", Height = 160 },
-                new Person { Name = "Joel", Height = 182 }
+                new Person { Name = "David", Height = 170 },
+                new Person { Name = "Michael", Height = 96 },
+                new Person { Name = "Steve", Height = 65 },
+                new Person { Name = "Joel", Height = 182 },
+                new Person { Name = "Bob", Height = 134 }
             }; 
        }
  }
@@ -112,45 +111,46 @@ N> Add namespace of `ViewModel` class to your XAML Page if you prefer to set `Da
 
 ###### Xaml
 ```xaml
-<Page
-    x:Class="CartesianChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:CartesianChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Window
+    .....
+    xmlns:model="using:CartesianChartDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
 
     <chart:SfCartesianChart>
+
         <chart:SfCartesianChart.DataContext>
             <model:ViewModel/>
         </chart:SfCartesianChart.DataContext>
+
     </chart:SfCartesianChart>
-</Page>
+</Window>
 ```
 ###### C#
 ```C#
 ViewModel viewModel = new ViewModel();
+
+SfCartesianChart chart = new SfCartesianChart();
 chart.DataContext = viewModel;
 ```
 
-## Populate chart with data
+## Populate Chart with Data
 
-As we are going to visualize the comparison of heights in the data model, add [`ColumnSeries`](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ColumnSeries.html) to [`Series`]() property of chart, and then bind the `Data` property of the above `ViewModel` to the `ColumnSeries.ItemsSource` as follows.
+As we are going to visualize the comparison of heights in the data model, add [ColumnSeries](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ColumnSeries.html) to [Series](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfCartesianChart.html#Syncfusion_UI_Xaml_Charts_SfCartesianChart_Series) property of chart, and then bind the `Data` property of the above `ViewModel` to the `ColumnSeries.ItemsSource` as follows.
 
-N> You need to set [`XBindingPath`](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_XBindingPath) and [`YBindingPath`](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.XyDataSeries.html#Syncfusion_UI_Xaml_Charts_XyDataSeries_YBindingPath) properties, so that chart would fetch values from the respective properties in the data model to plot the series.
+N> You need to set [XBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_XBindingPath) and [YBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.XyDataSeries.html#Syncfusion_UI_Xaml_Charts_XyDataSeries_YBindingPath) properties, so that chart would fetch values from the respective properties in the data model to plot the series.
 
 ###### Xaml
 ```xaml
 <chart:SfCartesianChart>
+
     <chart:SfCartesianChart.PrimaryAxis>
         <chart:CategoryAxis Header="Name"/>
     </chart:SfCartesianChart.PrimaryAxis>
+
     <chart:SfCartesianChart.SecondaryAxis>
         <chart:NumericalAxis Header="Height(in cm)"/>
     </chart:SfCartesianChart.SecondaryAxis>    
+
     <chart:ColumnSeries  ItemsSource="{Binding Data}"
                               XBindingPath="Name"
                               YBindingPath="Height">
@@ -182,25 +182,24 @@ series.YBindingPath = "Height";
 //Adding Series to the Chart Series Collection
 chart.Series.Add(series);
 ```
-## Add title
+## Add Title
 
-The header of the chart acts as the title to provide quick information to the user about the data being plotted in the chart. You can set title using the `Header` property of chart as follows.
+The title of the chart provide quick information to the user about the data being plotted in the chart. The `Header` property is used to set title for the chart as follows.
 
 ###### Xaml
 ```xaml
-<Grid>
    <chart:SfCartesianChart Header="Height Comparison"> 
    </chart:SfCartesianChart> 
-</Grid>
 ```
 ###### C#
 ```C#
+SfCartesianChart chart = new SfCartesianChart();
 chart.Header = "Height Comparison";
 ```
 
-## Enable data labels
+## Enable Data Labels
 
-The [ShowDataLabels]() property of series can be used to enable the data labels to improve the readability of the chart. The label visibility is set to `False` by default.
+The [ShowDataLabels](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.DataMarkerSeries.html#Syncfusion_UI_Xaml_Charts_DataMarkerSeries_ShowDataLabels) property of series can be used to enable the data labels to improve the readability of the chart. The label visibility is set to `False` by default.
 
 ###### Xaml
 ```xaml
@@ -220,13 +219,13 @@ series.ShowDataLabels = true;
 chart.Series.Add(series); 
 ```
 
-## Enable legend
+## Enable Legend
 
 The legend provides information about the data point displayed in the chart. The [Legend](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartBase.html#Syncfusion_UI_Xaml_Charts_ChartBase_Legend) property of the chart was used to enable it.
 
 ###### Xaml
 ```xaml
-<chart:SfCartesianChart >
+<chart:SfCartesianChart>
     . . .
     <chart:SfCartesianChart.Legend>
         <chart:ChartLegend/>
@@ -240,7 +239,7 @@ SfCartesianChart chart = new SfCartesianChart();
 chart.Legend = new ChartLegend ();
 ```
 
-Additionally, you need to set label for each series using the [`Label`](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_Label) property of ChartSeries, which will be displayed in corresponding legend.
+Additionally, you need to set label for each series using the [Label](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_Label) property of ChartSeries, which will be displayed in corresponding legend.
 
 ###### Xaml
 ```xaml
@@ -255,15 +254,18 @@ Additionally, you need to set label for each series using the [`Label`](https://
 ```
 ###### C#
 ```C#
+SfCartesianChart chart = new SfCartesianChart();
+
 ColumnSeries series = new ColumnSeries (); 
 series.ItemsSource = (new ViewModel()).Data;
 series.XBindingPath = "Name"; 
 series.YBindingPath = "Height"; 
 series.Label = "Heights";
+chart.Series.Add(series);
 ```
-## Enable tooltip
+## Enable Tooltip
 
-Tooltips are used to show information about the segment, when you click the segment. You can enable tooltip by setting series [`ShowTooltip`](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_ShowTooltip) property to true.
+Tooltips are used to show information about the segment, when hovers on the segment. Enable tooltip by setting series [ShowTooltip](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_ShowTooltip) property to true.
 
 ###### Xaml
 ```xaml
@@ -276,33 +278,30 @@ Tooltips are used to show information about the segment, when you click the segm
 ```
 ###### C#
 ```C#
+SfCartesianChart chart = new SfCartesianChart();
+
 ColumnSeries series = new ColumnSeries();
 series.ItemsSource = (new ViewModel()).Data;
 series.XBindingPath = "Name";          
 series.YBindingPath = "Height";
 series.ShowTooltip = true;
+chart.Series.Add(series);
 ```
 The following code example gives you the complete code of above configurations.
 
 ###### Xaml
 ```xaml
-<Page
-    x:Class="CartesianChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:CartesianChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" 
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Window
+    .....
+    xmlns:model="using:CartesianChartDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
     
     <chart:SfCartesianChart Header="Height Comparison" 
                  Palette="BlueChrome" Height="500" Width="800">
 
         <!--Setting DataContext-->
         <chart:SfCartesianChart.DataContext>
-            <Model:ViewModel/>
+            <model:ViewModel/>
         </chart:SfCartesianChart.DataContext>
         
         <!--Initialize the horizontal axis to the SfCartesianChart-->
@@ -332,15 +331,15 @@ The following code example gives you the complete code of above configurations.
         </chart:ColumnSeries>
         
     </chart:SfCartesianChart>
-</Page>
+</Window>
 ``` 
 ###### C#
 ```C#
 using Syncfusion.UI.Xaml.Charts;
 
-namespace CartesianChartGettingStartedUWP
+namespace CartesianChartDesktop
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Window
     {
         public MainPage()
         {
@@ -389,3 +388,5 @@ namespace CartesianChartGettingStartedUWP
 ## <a name="output"></a>Output ##
 
 ![WinUI Cartesian Chart Getting_Started image](CartesianChart_WinUI_GettingStarted.png)
+
+For more details please refer this ug [CartesianCharts](https://help.syncfusion.com/winui/cartesian-charts/getting-started).

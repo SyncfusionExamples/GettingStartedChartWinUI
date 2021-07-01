@@ -3,35 +3,29 @@ This is demo application of WinUI SfCircularChart control. The minimal set of re
 
 ## <a name="description"></a>Description ##
 
-## Initialize chart
-Add reference to [`Syncfusion.Chart.WinUI`](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
+## Initialize Chart
+Add reference to [Syncfusion.Chart.WinUI](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
 
 ###### Xaml
 ```xaml
 
-<Page
-    x:Class="CircularChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:CircularChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">  
-    <Grid>
-        <chart:SfCircularChart />            
-    </Grid>
-</Page>
+<Window
+    .....
+    xmlns:model="using:CircularChartDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">  
+
+    <chart:SfCircularChart />            
+
+</Window>
  ```
 ###### C#
 ```C#
 
 using Syncfusion.UI.Xaml.Charts;
 
-namespace CircularChartGettingStartedUWP
+namespace CircularChartDesktop
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Window
     {
         public MainPage()
         {
@@ -45,7 +39,7 @@ namespace CircularChartGettingStartedUWP
 }
 ```
 
-## Initialize view model
+## Initialize View Model
 
 Now, let us define a simple data model that represents a data point in chart.
 
@@ -88,33 +82,31 @@ N> Add namespace of `ChartViewModel` class to your XAML Page if you prefer to se
 
 ###### Xaml
 ```xaml
-<Page
-    x:Class="CircularChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:CircularChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Window
+    .....
+    xmlns:model="using:CircularChartDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
 
     <chart:SfCircularChart>
+
         <chart:SfCircularChart.DataContext>
             <model:ChartViewModel/>
         </chart:SfCircularChart.DataContext>
+
     </chart:SfCircularChart>
-</Page>
+</Window>
 ```
 ###### C#
 ```C#
 ChartViewModel viewModel = new ChartViewModel();
+
+SfCircularChart chart = new SfCircularChart();
 chart.DataContext = viewModel;
 ```
 
-## Populate chart with data
+## Populate Chart With Data
 
-Adding [PieSeries](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.PieSeries.html) to the chart [Series]() collection and binding `Data` to the series [ItemsSource](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_ItemsSource) property from its `DataContext` for creating our own Product – Sales Pie chart.
+Adding [PieSeries](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.PieSeries.html) to the chart [Series](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfCircularChart.html#Syncfusion_UI_Xaml_Charts_SfCircularChart_Series) collection and binding `Data` to the series [ItemsSource](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_ItemsSource) property from its `DataContext` for creating our own Product – Sales Pie chart.
 
 N> To plot the series, the [XBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_XBindingPath) and [YBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.XyDataSeries.html#Syncfusion_UI_Xaml_Charts_XyDataSeries_YBindingPath) properties must be configured so that the chart may get values from the respective properties in the data model.
 
@@ -127,6 +119,7 @@ N> To plot the series, the [XBindingPath](https://help.syncfusion.com/cr/winui/S
                          XBindingPath="Product" 
                          YBindingPath="SalesRate"/>
     </chart:SfCircularChart.Series>
+
 </chart:SfCircularChart> 
 ```
 
@@ -148,17 +141,15 @@ series.SetBinding(
 
 chart.Series.Add(series);
 ```
-## Add title
+## Add Title
 
-The header of the chart acts as the title to provide quick information to the user about the data being plotted in the chart. You can set title using the [Header]() property of circular chart as follows.
+The title of the chart provide quick information to the user about the data being plotted in the chart. The `Header` property is used to set title for the chart as follows.
 
 ###### Xaml
 ```xaml
-<Grid>
    <chart:SfCircularChart Header="PRODUCT SALES">
     . . .
    </chart:SfCircularChart> 
-</Grid>
 ```
 ###### C#
 ```C#
@@ -167,9 +158,9 @@ SfCircularChart chart = new SfCircularChart();
 chart.Header = "PRODUCT SALES";
 ```
 
-## Enable data labels
+## Enable Data Labels
 
-The [ShowDataLabels]() property of [CircularSeries]() can be used to enable data labels to improve the readability of the circular chart. The label visibility is set to `False` by default.
+The [ShowDataLabels](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.DataMarkerSeries.html#Syncfusion_UI_Xaml_Charts_DataMarkerSeries_ShowDataLabels) property of series can be used to enable the data labels to improve the readability of the chart. The label visibility is set to `False` by default.
 
 ###### Xaml
 ```xaml
@@ -191,7 +182,7 @@ series.ShowDataLabels = true;
 chart.Series.Add(series); 
 ```
 
-## Enable legend
+## Enable Legend
 
 The legend provides information about the data point displayed in the chart. The [Legend](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartBase.html#Syncfusion_UI_Xaml_Charts_ChartBase_Legend) property of the chart was used to enable it.
 
@@ -202,6 +193,7 @@ The legend provides information about the data point displayed in the chart. The
     <chart:SfCircularChart.Legend>
         <chart:ChartLegend/>
     </chart:SfCircularChart.Legend>
+
 </chart:SfCircularChart>
 ```
 ###### C#
@@ -213,7 +205,7 @@ chart.Legend = new ChartLegend();
 
 ## Enable tooltip
 
-Tooltips are used to show information about the segment, when mouse over on it. Enable tooltip by setting series [ShowTooltip](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_ShowTooltip) property as true.
+Tooltips are used to show information about the segment, when hovers on the segment. Enable tooltip by setting series [ShowTooltip](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartSeriesBase.html#Syncfusion_UI_Xaml_Charts_ChartSeriesBase_ShowTooltip) property to true.
 
 ###### Xaml
 ```xaml
@@ -236,24 +228,21 @@ The following code example gives you the complete code of above configurations.
 
 ###### Xaml
 ```xaml
-<Page
-    x:Class="CircularChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:CircularChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" 
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Window
+    .....
+    xmlns:model="using:CircularChartDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
     
     <chart:SfCircularChart Header="PRODUCT SALES">
+
             <chart:SfCircularChart.DataContext>
                  <model:ChartViewModel/>
             </chart:SfCircularChart.DataContext>
+
             <chart:SfCircularChart.Legend>
                   <chart:ChartLegend/>
              </chart:SfCircularChart.Legend>
+
              <chart:SfCircularChart.Series>
                     <chart:PieSeries ItemsSource="{Binding Data}" 
                          XBindingPath="Product" ShowTooltip="True"
@@ -261,16 +250,17 @@ The following code example gives you the complete code of above configurations.
                          Palette="BlueChrome">
                     </chart:PieSeries>
              </chart:SfCircularChart.Series>
+             
     </chart:SfCircularChart>
-</Page>
+</Window>
 ``` 
 ###### C#
 ```C#
 using Syncfusion.UI.Xaml.Charts;
 
-namespace CircularChartGettingStartedUWP
+namespace CircularChartDesktop
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Window
     {
         public MainPage()
         {
@@ -305,3 +295,5 @@ namespace CircularChartGettingStartedUWP
 ## <a name="output"></a>Output ##
 
 ![WinUI Circular Chart Getting_Started image](CircularChart_WinUI_GettingStarted.png)
+
+For more details please refer this ug [CircularCharts](https://help.syncfusion.com/winui/circular-charts/getting-started).

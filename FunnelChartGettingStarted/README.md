@@ -3,35 +3,29 @@ This is demo application of WinUI SfFunnelChart control. The minimal set of requ
 
 ## <a name="description"></a>Description ##
 
-## Initialize chart
-Add reference to [`Syncfusion.Chart.WinUI`](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
+## Initialize Chart
+Add reference to [Syncfusion.Chart.WinUI](https://www.nuget.org/packages/Syncfusion.Chart.WinUI/) NuGet and import the control namespace `Syncfusion.UI.Xaml.Charts`  in XAML or C# to initialize the control.
 
 ###### Xaml
 ```xaml
 
-<Page
-    x:Class="FunnelChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:FunnelChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">  
-    <Grid>
-        <chart:SfFunnelChart />            
-    </Grid>
-</Page>
+<Window
+    ...
+    xmlns:model="using:FunnelChartGettingStartedDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">  
+
+    <chart:SfFunnelChart />            
+
+</Window>
  ```
 ###### C#
 ```C#
 
 using Syncfusion.UI.Xaml.Charts;
 
-namespace FunnelChartGettingStartedUWP
+namespace FunnelChartGettingStartedDesktop
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Window
     {
         public MainPage()
         {
@@ -45,7 +39,7 @@ namespace FunnelChartGettingStartedUWP
 }
 ```
 
-## Initialize view model
+## Initialize View Model
 
 Now, let us define a simple data model that represents a data point in chart.
 
@@ -89,41 +83,37 @@ N> Add namespace of `ChartViewModel` class to your XAML Page if you prefer to se
 
 ###### Xaml
 ```xaml
-<Page
-    x:Class="FunnelChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:FunnelChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Window
+    ...
+    xmlns:model="using:FunnelChartGettingStartedDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
 
     <chart:SfFunnelChart>
+
         <chart:SfFunnelChart.DataContext>
             <model:ChartViewModel/>
         </chart:SfFunnelChart.DataContext>
+
     </chart:SfFunnelChart>
-</Page>
+</Window>
 ```
 ###### C#
 ```C#
 ChartViewModel viewModel = new ChartViewModel();
+
+SfFunnelChart chart = new SfFunnelChart();
 chart.DataContext = viewModel;
 ```
 
-## Add title
+## Add Title
 
-The title of the chart provide quick information to the user about the data being plotted in the chart. You can set the title using the [Header]() property of the funnel chart as follows.
+The title of the chart provide quick information to the user about the data being plotted in the chart. The `Header` property is used to set title for the chart as follows.
 
 ###### Xaml
 ```xaml
-<Grid>
    <chart:SfFunnelChart Header="PRODUCT SALES">
    . . .
    </chart:SfFunnelChart> 
-</Grid>
 ```
 ###### C#
 ```C#
@@ -132,9 +122,9 @@ SfFunnelChart chart = new SfFunnelChart();
 chart.Header = "PRODUCT SALES";
 ```
 
-## Enable data labels
+## Enable Data Labels
 
-The [ShowDataLabels]() property of [SfFunnelChart]() can be used to enable data labels to improve the readability of the funnel chart. The label visibility is set to `False` by default.
+The [ShowDataLabels](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfFunnelChart.html#Syncfusion_UI_Xaml_Charts_SfFunnelChart_ShowDataLabels) property of [SfFunnelChart](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfFunnelChart.html) can be used to enable data labels to improve the readability of the funnel chart. The label visibility is set to `False` by default.
 
 ###### Xaml
 ```xaml
@@ -151,7 +141,7 @@ SfFunnelChart chart = new SfFunnelChart();
 chart.ShowDataLabels = true; 
 ```
 
-## Enable legend
+## Enable Legend
 
 The legend provides information about the data point displayed in the chart. The [Legend](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartBase.html#Syncfusion_UI_Xaml_Charts_ChartBase_Legend) property of the chart was used to enable it.
 
@@ -172,9 +162,9 @@ SfFunnelChart chart = new SfFunnelChart();
 chart.Legend = new ChartLegend();
 ```
 
-## Enable tooltip
+## Enable Tooltip
 
-Tooltips are used to show information about the segment, when mouse over on it. Enable tooltip by setting funnel chart [ShowTooltip]() property as true.
+Tooltips are used to show information about the segment, when hovers on the segment. Enable tooltip by setting funnel chart [ShowTooltip](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfFunnelChart.html#Syncfusion_UI_Xaml_Charts_SfFunnelChart_ShowTooltip) property as true.
 
 ###### Xaml
 ```xaml
@@ -191,20 +181,14 @@ chart.ShowTooltip = true;
 
 The following code example gives you the complete code of above configurations.
 
-N> To plot the chart, the [XBindingPath]() and [YBindingPath]() properties must be configured so that the chart may get values from the respective properties in the data model.
+N> To plot the chart, the [XBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfFunnelChart.html#Syncfusion_UI_Xaml_Charts_SfFunnelChart_XBindingPath) and [YBindingPath](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfFunnelChart.html#Syncfusion_UI_Xaml_Charts_SfFunnelChart_YBindingPath) properties must be configured so that the chart may get values from the respective properties in the data model.
 
 ###### Xaml
 ```xaml
-<Page
-    x:Class="FunnelChartGettingStartedUWP.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:model="using:FunnelChartGettingStartedUWP"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" 
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Window
+    ...
+    xmlns:model="using:FunnelChartGettingStartedDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
     
     <chart:SfFunnelChart x:Name="chart" Header="PRODUCT SALES" 
                              ShowTooltip="True"
@@ -224,15 +208,15 @@ N> To plot the chart, the [XBindingPath]() and [YBindingPath]() properties must 
         </chart:SfFunnelChart.Legend>
             
     </chart:SfFunnelChart>
-</Page>
+</Window>
 ``` 
 ###### C#
 ```C#
 using Syncfusion.UI.Xaml.Charts;
 
-namespace FunnelChartGettingStartedUWP
+namespace FunnelChartGettingStartedDesktop
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Window
     {
         public MainPage()
         {
@@ -262,3 +246,5 @@ namespace FunnelChartGettingStartedUWP
 ## <a name="output"></a>Output ##
 
 ![WinUI Funnel Chart Getting_Started image](FunnelChart_WinUI_GettingStarted.png)
+
+For more details please refer this ug [FunnelChart](https://help.syncfusion.com/winui/funnel-chart/getting-started).
