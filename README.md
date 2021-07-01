@@ -4,11 +4,11 @@ This repository contains the samples that demonstrate the functionalities of Win
 
 We have provided the following chart types in WinUI.
 
-* Cartesian charts
-* Circular charts
-* Pyramid chart
-* Funnel chart
-* Polar charts
+* Cartesian Charts
+* Circular Charts
+* Pyramid Chart
+* Funnel Chart
+* Polar Charts
 
 #### Cartesian Charts
 
