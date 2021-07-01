@@ -247,4 +247,4 @@ namespace FunnelChartGettingStartedDesktop
 
 ![WinUI Funnel Chart Getting_Started image](FunnelChart_WinUI_GettingStarted.png)
 
-For more details please refer this ug [FunnelChart](https://help.syncfusion.com/winui/funnel-chart/getting-started).
+For more details please refer this ug [FunnelChart](https://help.syncfusion.com/winui/funnel-chart/getting-started/?utm_medium=listing&utm_source=github-examples).

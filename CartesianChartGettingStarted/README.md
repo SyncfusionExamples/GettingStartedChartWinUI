@@ -389,4 +389,4 @@ namespace CartesianChartDesktop
 
 ![WinUI Cartesian Chart Getting_Started image](CartesianChart_WinUI_GettingStarted.png)
 
-For more details please refer this ug [CartesianCharts](https://help.syncfusion.com/winui/cartesian-charts/getting-started).
+For more details please refer this ug [CartesianCharts](https://help.syncfusion.com/winui/cartesian-charts/getting-started/?utm_medium=listing&utm_source=github-examples).

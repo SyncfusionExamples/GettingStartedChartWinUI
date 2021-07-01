@@ -16,7 +16,7 @@ The Cartesian chart is an elegant way to visualize data. It supports more than 1
 
 [Cartesian Charts Sample](https://github.com/SyncfusionExamples/GettingStartedChartWinUI/tree/main/CartesianChartGettingStarted)
 
-[View complete cartesian charts features on UG](https://help.syncfusion.com/winui/cartesian-charts/getting-started)
+[View complete cartesian charts features on UG](https://help.syncfusion.com/winui/cartesian-charts/getting-started/?utm_medium=listing&utm_source=github-examples)
 
 #### Circular Charts
 
@@ -24,7 +24,7 @@ The Circular chart is user-friendly and gives greater UI visualization of data w
 
 [Circular Charts Sample](https://github.com/SyncfusionExamples/GettingStartedChartWinUI/tree/main/CircularChartGettingStarted)
 
-[View complete circular charts features on UG](https://help.syncfusion.com/winui/circular-charts/getting-started)
+[View complete circular charts features on UG](https://help.syncfusion.com/winui/circular-charts/getting-started/?utm_medium=listing&utm_source=github-examples)
 
 #### Pyramid Chart
 
@@ -32,7 +32,7 @@ The pyramid chart is used to represent hierarchies visually in a pyramid-like st
 
 [Pyramid Chart Sample](https://github.com/SyncfusionExamples/GettingStartedChartWinUI/tree/main/PyramidChartGettingStarted)
 
-[View complete pyramid chart features on UG](https://help.syncfusion.com/winui/pyramid-chart/getting-started)
+[View complete pyramid chart features on UG](https://help.syncfusion.com/winui/pyramid-chart/getting-started/?utm_medium=listing&utm_source=github-examples)
 
 #### Funnel chart
  
@@ -40,7 +40,7 @@ The funnel chart is used to plots streamlined data to show various stages in a p
 
 [Funnel Chart Sample](https://github.com/SyncfusionExamples/GettingStartedChartWinUI/tree/main/FunnelChartGettingStarted)
 
-[View complete funnel chart features on UG](https://help.syncfusion.com/winui/funnel-chart/getting-started)
+[View complete funnel chart features on UG](https://help.syncfusion.com/winui/funnel-chart/getting-started/?utm_medium=listing&utm_source=github-examples)
  
 #### Polar Charts
  
@@ -48,4 +48,4 @@ The polar chart is used to visualize data in terms of values and angles. It prov
 
 [Polar Charts Sample](https://github.com/SyncfusionExamples/GettingStartedChartWinUI/tree/main/PolarChartGettingStarted)
 
-[View complete polar charts features on UG](https://help.syncfusion.com/winui/polar-chart/getting-started)
+[View complete polar charts features on UG](https://help.syncfusion.com/winui/polar-chart/getting-started/?utm_medium=listing&utm_source=github-examples)
