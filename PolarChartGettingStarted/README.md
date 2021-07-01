@@ -359,4 +359,4 @@ namespace PolarChartGettingStartedDesktop
 
 ![WinUI Polar Chart Getting_Started image](PolarChart_WinUI_GettingStarted.png)
 
-For more details please refer this ug [PolarChart](https://help.syncfusion.com/winui/polar-chart/getting-started).
+For more details please refer this ug [PolarChart](https://help.syncfusion.com/winui/polar-chart/getting-started/?utm_medium=listing&utm_source=github-examples).

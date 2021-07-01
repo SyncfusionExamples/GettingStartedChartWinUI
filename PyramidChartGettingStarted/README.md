@@ -248,4 +248,4 @@ namespace PyramidChartGettingStartedDesktop
 
 ![WinUI Pyramid Chart Getting_Started image](PyramidChart_WinUI_GettingStarted.png)
 
-For more details please refer this ug [PyramidChart](https://help.syncfusion.com/winui/pyramid-chart/getting-started).
+For more details please refer this ug [PyramidChart](https://help.syncfusion.com/winui/pyramid-chart/getting-started/?utm_medium=listing&utm_source=github-examples).

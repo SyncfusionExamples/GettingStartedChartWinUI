@@ -296,4 +296,4 @@ namespace CircularChartDesktop
 
 ![WinUI Circular Chart Getting_Started image](CircularChart_WinUI_GettingStarted.png)
 
-For more details please refer this ug [CircularCharts](https://help.syncfusion.com/winui/circular-charts/getting-started).
+For more details please refer this ug [CircularCharts](https://help.syncfusion.com/winui/circular-charts/getting-started/?utm_medium=listing&utm_source=github-examples).
