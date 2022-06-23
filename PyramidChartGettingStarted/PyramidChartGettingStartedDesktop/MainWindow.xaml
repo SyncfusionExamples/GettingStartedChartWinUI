@@ -1,0 +1,30 @@
+﻿<Window
+    x:Class="PyramidChartGettingStartedDesktop.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:PyramidChartGettingStartedDesktop"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <chart:SfPyramidChart x:Name="chart" Height="600" Width="700"
+                    Header="The Food Comparison Pyramid"
+                    ShowTooltip="True"
+                    ShowDataLabels="True"
+                    ItemsSource="{Binding Data}" 
+                    XBindingPath="FoodName"
+                    YBindingPath="Calories">
+
+            <chart:SfPyramidChart.DataContext>
+                <model:ChartViewModel />
+            </chart:SfPyramidChart.DataContext>
+
+            <chart:SfPyramidChart.Legend>
+                <chart:ChartLegend />
+            </chart:SfPyramidChart.Legend>
+
+        </chart:SfPyramidChart>
+    </Grid>
+</Window>

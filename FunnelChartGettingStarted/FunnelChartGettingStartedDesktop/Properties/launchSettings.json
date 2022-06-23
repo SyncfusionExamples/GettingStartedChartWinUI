@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FunnelChartGettingStartedDesktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FunnelChartGettingStartedDesktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
