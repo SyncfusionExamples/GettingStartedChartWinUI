@@ -193,7 +193,6 @@ N> To plot the chart, the [XBindingPath](https://help.syncfusion.com/cr/winui/Sy
     <chart:SfFunnelChart x:Name="chart" Header="PRODUCT SALES" 
                              ShowTooltip="True"
                              ShowDataLabels="True"
-                             Palette="BlueChrome"
                              Height="500" Width="600"  
                              ItemsSource="{Binding Data}" 
                              XBindingPath="Category"
@@ -234,7 +233,6 @@ namespace FunnelChartGettingStartedDesktop
             chart.Legend = new ChartLegend();
             chart.ShowTooltip = true;
             chart.ShowDataLabels = true;
-            chart.Palette = ChartColorPalette.BlueChrome;
 
             this.Content = chart;
             

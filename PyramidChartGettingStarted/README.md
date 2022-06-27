@@ -195,7 +195,6 @@ N> To plot the chart, the [XBindingPath](https://help.syncfusion.com/cr/winui/Sy
                     Height="600" Width="700"
                     ShowTooltip="True"
                     ShowDataLabels="True"
-                    Palette="BlueChrome"
                     ItemsSource="{Binding Data}" 
                     XBindingPath="FoodName"
                     YBindingPath="Calories">
@@ -235,7 +234,6 @@ namespace PyramidChartGettingStartedDesktop
             chart.Legend = new ChartLegend();
             chart.ShowTooltip = true;
             chart.ShowDataLabels = true;
-            chart.Palette = ChartColorPalette.BlueChrome;
 
             this.Content = chart;
             
