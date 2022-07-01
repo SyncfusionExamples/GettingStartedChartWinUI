@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PyramidChartGettingStartedDesktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PyramidChartGettingStartedDesktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

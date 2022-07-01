@@ -40,19 +40,19 @@ namespace CartesianChartDesktop
 
 ## Initialize Chart Axis
 
-[ChartAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartAxis.html) is used to locate the data points inside the chart area. The [PrimaryAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfCartesianChart.html#Syncfusion_UI_Xaml_Charts_SfCartesianChart_PrimaryAxis) and [SecondaryAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.SfCartesianChart.html#Syncfusion_UI_Xaml_Charts_SfCartesianChart_SecondaryAxis) properties of the chart is used to initialize the axis for the chart.
+[ChartAxis](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.Charts.ChartAxis.html) is used to locate the data points inside the chart area. The [XAxes]() and [YAxes]() properties of the chart is used to initialize the axis for the chart.
 
 ###### Xaml
 ```xaml
 <chart:SfCartesianChart> 
 
-      <chart:SfCartesianChart.PrimaryAxis> 
+      <chart:SfCartesianChart.XAxes> 
            <chart:CategoryAxis/> 
-      </chart:SfCartesianChart.PrimaryAxis> 
+      </chart:SfCartesianChart.XAxes> 
 
-      <chart:SfCartesianChart.SecondaryAxis> 
+      <chart:SfCartesianChart.YAxes> 
            <chart:NumericalAxis/> 
-      </chart:SfCartesianChart.SecondaryAxis>
+      </chart:SfCartesianChart.YAxes>
 
 </chart:SfCartesianChart>
 ```
@@ -61,11 +61,10 @@ namespace CartesianChartDesktop
 
 SfCartesianChart chart = new SfCartesianChart();
 
-CategoryAxis primaryAxis = new CategoryAxis();
-chart.PrimaryAxis = primaryAxis;    
-
-NumericalAxis secondaryAxis = new NumericalAxis();
-chart.SecondaryAxis = secondaryAxis;
+CategoryAxis xAxis = new CategoryAxis();
+chart.XAxes.Add(xAxis);
+NumericalAxis yAxis = new NumericalAxis();
+chart.YAxes.Add(yAxis);
 ```
 
 ## Initialize View Model
@@ -143,13 +142,13 @@ N> You need to set [XBindingPath](https://help.syncfusion.com/cr/winui/Syncfusio
 ```xaml
 <chart:SfCartesianChart>
 
-    <chart:SfCartesianChart.PrimaryAxis>
+    <chart:SfCartesianChart.XAxes>
         <chart:CategoryAxis Header="Name"/>
-    </chart:SfCartesianChart.PrimaryAxis>
+    </chart:SfCartesianChart.XAxes>
 
-    <chart:SfCartesianChart.SecondaryAxis>
+    <chart:SfCartesianChart.YAxes>
         <chart:NumericalAxis Header="Height(in cm)"/>
-    </chart:SfCartesianChart.SecondaryAxis>    
+    </chart:SfCartesianChart.YAxes>    
 
     <chart:ColumnSeries  ItemsSource="{Binding Data}"
                               XBindingPath="Name"
@@ -164,14 +163,14 @@ N> You need to set [XBindingPath](https://help.syncfusion.com/cr/winui/Syncfusio
 SfCartesianChart chart = new SfCartesianChart();
 
 //Adding horizontal axis to the chart 
-CategoryAxis primaryAxis = new CategoryAxis();
-primaryAxis.Header = "Name";   
-chart.PrimaryAxis = primaryAxis;
+CategoryAxis xAxis = new CategoryAxis();
+xAxis.Header = "Name";
+chart.XAxes.Add(xAxis);
 
 //Adding vertical axis to the chart 
-NumericalAxis secondaryAxis = new NumericalAxis();
-secondaryAxis.Header = "Height(in cm)";  
-chart.SecondaryAxis = secondaryAxis;
+NumericalAxis yAxis = new NumericalAxis();
+yAxis.Header = "Height(in cm)";
+chart.YAxes.Add(yAxis);
 
 //Initialize the column series for chart
 ColumnSeries series = new ColumnSeries();
@@ -305,14 +304,14 @@ The following code example gives you the complete code of above configurations.
         </chart:SfCartesianChart.DataContext>
         
         <!--Initialize the horizontal axis to the SfCartesianChart-->
-        <chart:SfCartesianChart.PrimaryAxis>
+        <chart:SfCartesianChart.XAxes>
             <chart:CategoryAxis Header="Names"/>
-        </chart:SfCartesianChart.PrimaryAxis>
+        </chart:SfCartesianChart.XAxes>
 
        <!--Initialize the vertical axis to the SfCartesianChart-->
-        <chart:SfCartesianChart.SecondaryAxis>
+        <chart:SfCartesianChart.YAxes>
             <chart:NumericalAxis Header="Height(in cm)"/>
-        </chart:SfCartesianChart.SecondaryAxis>
+        </chart:SfCartesianChart.YAxes>
 
         <!--Initialize the legend to the SfCartesianChart-->
         <chart:SfCartesianChart.Legend>
@@ -349,16 +348,16 @@ namespace CartesianChartDesktop
             Palette = ChartColorPalette.BlueChrome, Height="500", Width="800" };
 
             //Adding horizontal axis to the Cartesian chart 
-            CategoryAxis primaryAxis = new CategoryAxis();
-            primaryAxis.Header = "Name";
-            primaryAxis.FontSize = 14;
-            chart.PrimaryAxis = primaryAxis;
+            CategoryAxis xAxis = new CategoryAxis();
+            xAxis.Header = "Name";
+            xAxis.FontSize = 14;
+            chart.XAxes.Add(xAxis);
 
             //Adding vertical axis to the Cartesian chart 
-            NumericalAxis secondaryAxis = new NumericalAxis();
-            secondaryAxis.Header = "Height(in cm)";
-            secondaryAxis.FontSize = 14;
-            chart.SecondaryAxis = secondaryAxis;
+            NumericalAxis yAxis = new NumericalAxis();
+            yAxis.Header = "Height(in cm)";
+            yAxis.FontSize = 14;
+            chart.YAxes.Add(yAxis);
 
             //Adding Legends for the Cartesian chart
             ChartLegend legend = new ChartLegend();

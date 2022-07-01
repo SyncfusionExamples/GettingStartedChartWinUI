@@ -246,8 +246,7 @@ The following code example gives you the complete code of above configurations.
              <chart:SfCircularChart.Series>
                     <chart:PieSeries ItemsSource="{Binding Data}" 
                          XBindingPath="Product" ShowTooltip="True"
-                         YBindingPath="SalesRate" ShowDataLabels="True"
-                         Palette="BlueChrome">
+                         YBindingPath="SalesRate" ShowDataLabels="True">
                     </chart:PieSeries>
              </chart:SfCircularChart.Series>
              
@@ -278,7 +277,6 @@ namespace CircularChartDesktop
             series.YBindingPath = "SalesRate";
             series.ShowTooltip = true;
             series.ShowDataLabels = true;
-            series.Palette = ChartColorPalette.BlueChrome;
 
             series.SetBinding(
                 PieSeries.ItemsSourceProperty, 
