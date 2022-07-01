@@ -23,9 +23,9 @@
                 <chart:ChartLegend/>
             </chart:SfPolarChart.Legend>
             <chart:SfPolarChart.Series>
-                <chart:PolarAreaSeries ItemsSource="{Binding PlantDetails}" 
-                         XBindingPath="Direction" YBindingPath="Tree"
-                         Label="Tree" ShowDataLabels="True"
+                <chart:PolarAreaSeries ItemsSource="{Binding Data}" 
+                         XBindingPath="Category" YBindingPath="Value"
+                         Label="Sales" ShowDataLabels="True"
                          LegendIcon="Pentagon">
                     <chart:PolarAreaSeries.DataLabelSettings>
                         <chart:PolarDataLabelSettings Foreground="White" FontSize="12" 

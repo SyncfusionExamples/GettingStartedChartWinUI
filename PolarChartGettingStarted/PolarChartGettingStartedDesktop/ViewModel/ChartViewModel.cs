@@ -9,20 +9,20 @@ namespace PolarChartGettingStartedDesktop
 {
     public class ChartViewModel
     {
-        public ObservableCollection<PlantData> PlantDetails { get; set; }
+        public ObservableCollection<Model> Data { get; set; }
 
         public ChartViewModel()
         {
-            PlantDetails = new ObservableCollection<PlantData>()
+            Data = new ObservableCollection<Model>()
             {
-            new PlantData(){ Direction = "North", Tree = 80 },
-            new PlantData(){ Direction = "NorthWest", Tree = 87 },
-            new PlantData(){ Direction = "West", Tree = 78 },
-            new PlantData(){ Direction = "SouthWest", Tree = 85 },
-            new PlantData(){ Direction = "South", Tree = 81 },
-            new PlantData(){ Direction = "SouthEast", Tree = 88 },
-            new PlantData(){ Direction = "East", Tree = 80 },
-            new PlantData(){ Direction = "NorthEast", Tree = 85 },
+            new Model(){ Category = "North", Value = 80 },
+            new Model(){ Category = "NorthWest", Value = 87 },
+            new Model(){ Category = "West", Value = 78 },
+            new Model(){ Category = "SouthWest", Value = 85 },
+            new Model(){ Category = "South", Value = 81 },
+            new Model(){ Category = "SouthEast", Value = 88 },
+            new Model(){ Category = "East", Value = 80 },
+            new Model(){ Category = "NorthEast", Value = 85 },
             };
         }
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PolarChartGettingStartedDesktop
 {
-    public class PlantData
+    public class Model
     {
-        public string Direction { get; set; }
-        public double Tree { get; set; }
+        public string Category { get; set; }
+        public double Value { get; set; }
     }
 }
