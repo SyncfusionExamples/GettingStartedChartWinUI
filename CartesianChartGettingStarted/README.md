@@ -295,8 +295,7 @@ The following code example gives you the complete code of above configurations.
     xmlns:model="using:CartesianChartDesktop"
     xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
     
-    <chart:SfCartesianChart Header="Height Comparison" 
-                 Palette="BlueChrome" Height="500" Width="800">
+    <chart:SfCartesianChart Header="Height Comparison" Height="500" Width="800">
 
         <!--Setting DataContext-->
         <chart:SfCartesianChart.DataContext>
@@ -345,7 +344,7 @@ namespace CartesianChartDesktop
             InitializeComponent();
             
             SfCartesianChart chart = new SfCartesianChart() { Header = "Height Comparison", 
-            Palette = ChartColorPalette.BlueChrome, Height="500", Width="800" };
+            Height="500", Width="800" };
 
             //Adding horizontal axis to the Cartesian chart 
             CategoryAxis xAxis = new CategoryAxis();
