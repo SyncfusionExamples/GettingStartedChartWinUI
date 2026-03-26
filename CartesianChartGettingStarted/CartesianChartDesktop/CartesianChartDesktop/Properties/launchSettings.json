@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CartesianChartDesktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CartesianChartDesktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
