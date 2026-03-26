@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CircularChartDesktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CircularChartDesktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
