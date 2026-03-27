@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PolarChartGettingStartedDesktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PolarChartGettingStartedDesktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
