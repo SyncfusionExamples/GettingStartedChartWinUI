@@ -1,6 +1,6 @@
 # GettingStartedChartWinUI
 
-This repository contains the samples that demonstrate the functionalities of [WinUI Chart](https://www.syncfusion.com/winui-controls/cartesian-charts?utm_source=github&utm_medium=listing&utm_campaign=maui-charts-github-samplesting-started) controls.
+This repository contains the samples that demonstrate the functionalities of [WinUI Chart](https://www.syncfusion.com/winui-controls/cartesian-charts?utm_source=github&utm_medium=listing&utm_campaign=winui-charts-github-samples) controls.
 
 We have provided the following chart types in WinUI.
 
