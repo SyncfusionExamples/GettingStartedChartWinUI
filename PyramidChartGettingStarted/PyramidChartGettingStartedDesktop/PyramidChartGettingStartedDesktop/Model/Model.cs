@@ -8,7 +8,7 @@ namespace PyramidChartGettingStartedDesktop
 {
     public class Model
     {
-        public string FoodName { get; set; }
+        public string FoodName { get; set; } = String.Empty;
 
         public double Calories { get; set; }
     }

@@ -8,7 +8,7 @@ namespace CartesianChartDesktop
 {
     public class Person
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = String.Empty;
 
         public double Height { get; set; }
     }

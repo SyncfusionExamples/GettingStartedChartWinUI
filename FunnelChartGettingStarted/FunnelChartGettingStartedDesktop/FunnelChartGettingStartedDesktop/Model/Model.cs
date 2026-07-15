@@ -8,7 +8,7 @@ namespace FunnelChartGettingStartedDesktop
 {
     public class Model
     {
-        public string Category { get; set; }
+        public string Category { get; set; } = String.Empty;
 
         public double Value { get; set; }
     }

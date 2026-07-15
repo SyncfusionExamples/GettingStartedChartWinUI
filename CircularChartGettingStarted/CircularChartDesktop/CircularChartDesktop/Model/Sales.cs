@@ -8,7 +8,7 @@ namespace CircularChartDesktop
 {
     public class Sales
     {
-        public string Product { get; set; }
+        public string Product { get; set; } = String.Empty;
 
         public double SalesRate { get; set; }
     }
